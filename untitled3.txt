@@ -1,0 +1,142 @@
+Question 1- Write a Python program to replace all occurrences of a space, comma, or dot with a colon. Sample Text- 'Python Exercises, PHP exercises.'
+
+
+def replace_characters(text):
+    replace_chars = [' ',',','.']
+    for char in replace_chars:
+        text = text.replace(char,':')
+    return text    
+sample_text =  'Python Exercises, PHP exercises.'
+Expected_text = replace_characters(sample_text)
+print('Expected_text:-',Expe
+sample_text =  'Python Exercises, PHP exercises.'
+Expected_text = replace_characters(sample_text)
+print('Expected_text:-',Expected_text)
+Expected_text:- Python:Exercises::PHP:exercises:
+Question 2- Create a dataframe using the dictionary below and remove everything (commas (,), !, XXXX, ;, etc.) from the columns except words. Dictionary- {'SUMMARY' : ['hello, world!', 'XXXXX test', '123four, five:; six...']}
+
+import pandas as pd
+import regex as re
+import re
+data = {'SUMMARY': ['hello, world!', 'XXXXX test', '123four, five:; six...']}
+df = pd.DataFrame(data)
+def clean_text(text):
+    cleaned_text = re.sub(r'[^a-zA-Z\s]','',text)
+    return cleaned_text
+df['SUMMARY'] = df['SUMMARY'].apply(clean_text)
+df
+print(df)
+         SUMMARY
+0    hello world
+1     XXXXX test
+2  four five six
+Question 3- Create a function in python to find all words that are at least 4 characters long in a string. The use of the re.compile() method is mandatory.
+
+text = 'Python is a very popular general-purpose interpreted, interactive, object-oriented, and high-level programming language'
+def find_words(text):
+    pattern = re.compile(r'\w{4,}')
+    long_words = pattern.findall(text)
+    return long_words
+result = find_words(text)
+print('At least 4 Character:-',result)
+At least 4 Character:- ['Python', 'very', 'popular', 'general', 'purpose', 'interpreted', 'interactive', 'object', 'oriented', 'high', 'level', 'programming', 'language']
+Question 4- Create a function in python to find all three, four, and five character words in a string. The use of the re.compile() method is mandatory.
+
+
+string = 'Python is a very popular general-purpose interpreted, interactive, object-oriented, and high-level programming language'
+def specified_words(string):
+    pattern = re.compile(r'\w{3,5}',)
+    three_to_five_words = pattern.findall(string)
+    return three_to_five_words
+result = specified_words(string)
+print(result)    
+['Pytho', 'very', 'popul', 'gener', 'purpo', 'inter', 'prete', 'inter', 'activ', 'objec', 'orien', 'ted', 'and', 'high', 'level', 'progr', 'ammin', 'langu', 'age']
+Question 5- Create a function in Python to remove the parenthesis in a list of strings. The use of the re.compile() method is mandatory. Sample Text: ["example (.com)", "hr@fliprobo (.com)", "github (.com)", "Hello (Data Science World)", "Data (Scientist)"]
+
+sample_text = ["example (.com)", "hr@fliprobo (.com)", "github (.com)", "Hello (Data Science World)", "Data (Scientist)"]
+def remove_parenthesis(strings):
+    pattern = re.compile(r'\([^)]*\)')
+    
+    def remove_parenthesis_from_string(string):
+        return pattern.sub('',string)
+    
+    clean_string = list(map(remove_parenthesis_from_string, strings))
+    return clean_string
+clean_text = remove_parenthesis(sample_text)
+for text in clean_text:
+    print(text)
+example 
+hr@fliprobo 
+github 
+Hello 
+Data 
+Question 6- Write a python program to remove the parenthesis area from the text stored in the text file using Regular Expression. Sample Text: ["example (.com)", "hr@fliprobo (.com)", "github (.com)", "Hello (Data Science World)", "Data (Scientist)"]
+
+Question 7- Write a regular expression in Python to split a string into uppercase letters. Sample text: “ImportanceOfRegularExpressionsInPython”
+
+text= "ImportanceOfRegular@ExpressionsInPython"
+upper_case = [s for s in re.split("([A-Z][^A-Z]*)", text)if s]
+print(upper_case) 
+['Importance', 'Of', 'Regular@', 'Expressions', 'In', 'Python']
+Question 8- Create a function in python to insert spaces between words starting with numbers. Sample Text: “RegularExpression1IsAn2ImportantTopic3InPython"
+
+def insert_space(string):
+    return re.sub(r"(\w)([0-9])", r"\1 \2", string)
+print(insert_space("RegularExpression1IsAn2ImportantTopic3InPython"))
+RegularExpression 1IsAn 2ImportantTopic 3InPython
+Expected Output: RegularExpression 1IsAn 2ImportantTopic 3InPython
+Question 9- Create a function in python to insert spaces between words starting with capital letters or with numbers. Sample Text: “RegularExpression1IsAn2ImportantTopic3InPython"
+
+def putSpace(input):
+    words = re.findall('\w[a-zA-Z]*', input)
+    print(' '.join(words))
+input = 'RegularExpression1IsAn2ImportantTopic3InPython'
+putSpace(input)
+def putSpace(input):
+    words = re.findall('\w[a-zA-Z]*', input)
+    print(' '.join(words))
+input = 'RegularExpression1IsAn2ImportantTopic3InPython'
+putSpace(input)
+RegularExpression 1IsAn 2ImportantTopic 3InPython
+Question 10- Use the github link below to read the data and create a dataframe. After creating the dataframe extract the first 6 letters of each country and store in the dataframe under a new column called first_five_letters.
+
+url1 = 'https://raw.githubusercontent.com/dsrscientist/DSData/master/happiness_score_dataset.csv'
+_
+df = pd.read_csv(url1)
+df
+df
+Country	Region	Happiness Rank	Happiness Score	Standard Error	Economy (GDP per Capita)	Family	Health (Life Expectancy)	Freedom	Trust (Government Corruption)	Generosity	Dystopia Residual
+0	Switzerland	Western Europe	1	7.587	0.03411	1.39651	1.34951	0.94143	0.66557	0.41978	0.29678	2.51738
+1	Iceland	Western Europe	2	7.561	0.04884	1.30232	1.40223	0.94784	0.62877	0.14145	0.43630	2.70201
+2	Denmark	Western Europe	3	7.527	0.03328	1.32548	1.36058	0.87464	0.64938	0.48357	0.34139	2.49204
+3	Norway	Western Europe	4	7.522	0.03880	1.45900	1.33095	0.88521	0.66973	0.36503	0.34699	2.46531
+4	Canada	North America	5	7.427	0.03553	1.32629	1.32261	0.90563	0.63297	0.32957	0.45811	2.45176
+...	...	...	...	...	...	...	...	...	...	...	...	...
+153	Rwanda	Sub-Saharan Africa	154	3.465	0.03464	0.22208	0.77370	0.42864	0.59201	0.55191	0.22628	0.67042
+154	Benin	Sub-Saharan Africa	155	3.340	0.03656	0.28665	0.35386	0.31910	0.48450	0.08010	0.18260	1.63328
+155	Syria	Middle East and Northern Africa	156	3.006	0.05015	0.66320	0.47489	0.72193	0.15684	0.18906	0.47179	0.32858
+156	Burundi	Sub-Saharan Africa	157	2.905	0.08658	0.01530	0.41587	0.22396	0.11850	0.10062	0.19727	1.83302
+157	Togo	Sub-Saharan Africa	158	2.839	0.06727	0.20868	0.13995	0.28443	0.36453	0.10731	0.16681	1.56726
+158 rows × 12 columns
+
+df.head()
+Country	Region	Happiness Rank	Happiness Score	Standard Error	Economy (GDP per Capita)	Family	Health (Life Expectancy)	Freedom	Trust (Government Corruption)	Generosity	Dystopia Residual
+0	Switzerland	Western Europe	1	7.587	0.03411	1.39651	1.34951	0.94143	0.66557	0.41978	0.29678	2.51738
+1	Iceland	Western Europe	2	7.561	0.04884	1.30232	1.40223	0.94784	0.62877	0.14145	0.43630	2.70201
+2	Denmark	Western Europe	3	7.527	0.03328	1.32548	1.36058	0.87464	0.64938	0.48357	0.34139	2.49204
+3	Norway	Western Europe	4	7.522	0.03880	1.45900	1.33095	0.88521	0.66973	0.36503	0.34699	2.46531
+4	Canada	North America	5	7.427	0.03553	1.32629	1.32261	0.90563	0.63297	0.32957	0.45811	2.45176
+df['first_five_latters'] = df['Country'].str[:6]
+df['first_five_latters'] 
+0      Switze
+1      Icelan
+2      Denmar
+3      Norway
+4      Canada
+        ...  
+153    Rwanda
+154     Benin
+155     Syria
+156    Burund
+157      Togo
+Name: first_five_latters, Length: 158, dtype: object
