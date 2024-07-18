@@ -1,0 +1,79 @@
+1. Which of the following operators is used to calculate remainder in a division?
+Ans:-C) %
+2//3
+#2. In python 2//3 is equal to?
+​
+2//3
+0
+#3. In python, 6<<2 is equal to?
+​
+6<<2
+24
+6&2
+#4. In python, 6&2 will give which of the following as output?
+​
+6&2
+2
+6|2
+#5. In python, 6|2 will give which of the following as output?
+​
+6|2
+6
+6. What does the finally keyword denotes in python?
+​
+Ans:- C) the finally block will be executed no matter if the try block raises an error or not
+7. What does raise keyword is used for in python?
+​
+Ans:- A) It is used to raise an exception
+8. Which of the following is a common use case of yield keyword in python?
+​
+Ans:-C) In defining a generator
+9. Which of the following are the valid variable names?
+​
+Ans:- Ans:-  A) _abc   C) abc2
+10. Which of the following are the keywords in python?
+​
+Ans:-D) all of the above
+#11. Write a python program to find the factorial of a number.
+def factorial(n):
+    if n==0:
+        return 1
+    else:
+        return n* factorial(n-1)
+num = float(input('Enter a random number to find a factorial:-'))
+if num<0:
+    print("factorial cann't find for negative values:")
+else:
+    result = factorial(num)
+    print('The factorial of ',num,'is:-',result)
+​
+Enter a random number to find a factorial:-9
+The factorial of  9.0 is:- 362880.0
+#12. Write a python program to find whether a number is prime or composite.
+​
+​
+#13. Write a python program to check whether a given string is palindrome or not
+#14. Write a Python program to get the third side of right-angled triangle from two given side
+#15. Write a python program to print the frequency of each of the characters present in a given string.
+​
+def character_frequency(string):
+    frequency = {}
+    
+    for char in string:
+        if char in frequency:
+            frequency[char] += 1
+        else:
+            frequency[char] = 1
+​
+    return frequency
+input_string = input("Enter a string: ")
+freq = character_frequency(input_string)
+print("Character frequencies in the string:")
+for char, count in freq.items():
+    print(f"'{char}' : {count}")
+Enter a string: Bittu
+Character frequencies in the string:
+'B' : 1
+'i' : 1
+'t' : 2
+'u' : 1
